@@ -10,5 +10,24 @@ function addTask(){
 
     const li = document.createElement("li")
     li.content = taskText;
+     
+    li.addEventListener("click", function(){
+        li.classList.toggle("completed")
+    });
 
+    const removeButton = document.createElement("button")
+    removeButton.textContent = "Remover";
+    removeButton.addEventListener("click", function (e){
+        e.stopPropagation();
+        li.remove();
+    });
+ 
+    
+    li.appendChild(removeButton);
+ 
+    const taskList = document.getElementById("taskList");
+    taskList.appendChild(li);
+ 
+
+    taskInput.value = "";
 }
